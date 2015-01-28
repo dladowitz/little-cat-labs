@@ -1,26 +1,32 @@
 %nav.navbar-default.navbar-static-side{:role => "navigation"}
   .sidebar-collapse
     %ul#side-menu.nav
+      .logo-element{style: "display: block"}
+        %span
+          =image_tag "logo_handwriting_white.png",  alt: "logo", width: 180
       %li.nav-header
         .dropdown.profile-element
+          %span
+            =image_tag "profiles/dusty.jpg",  alt: "image", class: "img-circle", height: 60
           %span
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
               %span.clear
                 %span.block.m-t-xs
-                  %strong.font-bold David Williams
-                %span.text-muted.text-xs.block
-                  Art Director
-                  %b.caret
-            %ul.dropdown-menu.animated.fadeInRight.m-t-xs
-              %li
-                %a{:href => "login.html"} Logout
-        .logo-element
-          IN+
+                  %strong.font-bold
+                    = @user.first_name
+                    = @user.last_name
+            -#    %span.text-muted.text-xs.block
+            -#      Art Director
+            -#      %b.caret
+            -#%ul.dropdown-menu.animated.fadeInRight.m-t-xs
+            -#  %li
+            -#    %a{:href => "login.html"} Logout
+
       %li.active
-        %a{:href => "index.html"}
+        %a{ href: user_path(@user) }
           %i.fa.fa-th-large
-          %span.nav-label Main view
+          %span.nav-label Dashboard
       %li
-        %a{:href => "minor.html"}
+        %a{ href: "#" }
           %i.fa.fa-th-large
-          %span.nav-label Minor view
+          %span.nav-label Profile

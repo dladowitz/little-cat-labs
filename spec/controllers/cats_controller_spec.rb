@@ -99,4 +99,35 @@ describe CatsController do
       end
     end
   end
+
+  describe "DELETE destroy" do
+    let(:user) { users(:ohm) }
+    let(:cat)  { user.cats.first }
+
+    context "when the cat is found in the database" do
+      subject { delete :destroy, user_id: user.id, id: cat.id }
+
+      it "removes the cat from the database" do
+        expect{subject}.to change{Cat.count}.by -1
+      end
+
+      it "redirects to the user show page" do
+        subject
+        expect(response).to redirect_to user_path(user)
+      end
+    end
+
+    context "when the cat is NOT found in the database" do
+      subject { delete :destroy, user_id: user.id, id: "Not a real id" }
+
+      it "does NOT remove anything from the database" do
+        expect{subject}.not_to change{Cat.count}
+      end
+
+      it "redirects to the user show page" do
+        subject
+        expect(response).to redirect_to user_path(user)
+      end
+    end
+  end
 end

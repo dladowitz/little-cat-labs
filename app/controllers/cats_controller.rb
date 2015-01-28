@@ -28,18 +28,27 @@ class CatsController < ApplicationController
 
   def update
     # TODO dry this up
-
     @user = User.find params[:user_id]
     @cat = Cat.find_by_id params[:id]
 
-    if @cat
-      @cat.update_attributes cat_params
-
+    if @cat && @cat.update_attributes(cat_params)
       if @cat.save
         redirect_to user_path(@user) and return
       else
         render :edit and return
       end
+    end
+
+    redirect_to user_path(@user)
+  end
+
+  def destroy
+    # TODO dry this up
+    @user = User.find params[:user_id]
+    @cat = Cat.find_by_id params[:id]
+
+    if @cat && @cat.delete
+      flash[:success] = "Goodbye kitty"
     end
 
     redirect_to user_path(@user)

@@ -1,8 +1,17 @@
-= "Name: #{@cat.name}"
-%br
-= "Age: #{@cat.age}"
+.ibox.float-e-margins
+  .ibox-title
+    %span.label.label-primary.pull-right Today
+    %h2= @cat.name
 
-%br
-%br
-= link_to "Edit Cat", edit_user_cat_path(@user, @cat), class: "btn btn-info"
-= link_to "Delete Cat", user_cat_path(@user, @cat), method: :delete, class: "btn btn-danger"
+  .ibox-content
+    %h3
+      Age:
+      = @cat.age
+
+    %small
+      meow mewo
+
+    .mt40
+      = link_to "Edit Cat", edit_user_cat_path(@user, @cat), class: "btn btn-info"
+      = link_to "Delete Cat", user_cat_path(@user, @cat), method: :delete, class: "btn btn-danger"
+
