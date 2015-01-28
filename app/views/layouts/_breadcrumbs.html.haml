@@ -3,7 +3,7 @@
     %h2= @page_name
     %ol.breadcrumb
       %li
-        = link_to "Home", user_path(session[:id])
+        = link_to "Home", user_path(session[:user_id])
       %li
         %a Forms
       %li.active

@@ -18,7 +18,7 @@ describe SessionsController do
       before { subject }
 
       it "sets the session id to the user id" do
-        expect(session[:id]).to eq user.id
+        expect(session[:user_id]).to eq user.id
       end
 
       it "displays a flash message" do
@@ -46,8 +46,8 @@ describe SessionsController do
         expect(response).to redirect_to signin_path
       end
 
-      it "does not set session[:id]" do
-        expect(session[:id]).to be_nil
+      it "does not set session[:user_id]" do
+        expect(session[:user_id]).to be_nil
       end
     end
   end
@@ -58,12 +58,12 @@ describe SessionsController do
 
     context "with an authenticated user" do
       before :each do
-        session[:id] = user.id
+        session[:user_id] = user.id
         subject
       end
 
-      it "sets the session[:id] to nil" do
-        expect(session[:id]).to be_nil
+      it "sets the session[:user_id] to nil" do
+        expect(session[:user_id]).to be_nil
       end
 
       it "sets a flash message" do
@@ -77,7 +77,7 @@ describe SessionsController do
 
     context "without an authenticated user" do
       before :each do
-        session[:id] = nil
+        session[:user_id] = nil
         subject
       end
 

@@ -13,6 +13,7 @@ FixtureBuilder.configure do |fbuilder|
     @ampere  = create(:user, first_name: "Andre",      last_name: "Ampere", email: "aampere@gmail.com" )
     @ohm     = create(:user, first_name: "Georg",      last_name: "Ohm",    email: "gohm@gmail.com" )
 
+    @ohms_cat = create(:cat, name: "Aiko", age: 7, user: @ohm)
   end
 end
 

@@ -18,4 +18,6 @@ class User < ActiveRecord::Base
   validates :password,   presence: { on: create }, length: { minimum: 6 }, if: :password_digest_changed?
 
   has_secure_password
+
+  has_many :cats
 end

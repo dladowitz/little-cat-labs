@@ -27,6 +27,10 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
+  # Enable access to fixture instances
+  # EX: let(:user) { users(:volta) }
+  config.global_fixtures = :all
+
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.
@@ -44,4 +48,7 @@ RSpec.configure do |config|
 
   # Include Factory Girl syntax to simplify syntax from: FactoryGirl.create(:category, name: "Comedy")) to: create(:category, name: "Comedy"))
   config.include FactoryGirl::Syntax::Methods
+
+  # Include spec/support/controller_spec_helpers.rb
+  config.include ControllerSpecHelpers, type: :controller
 end

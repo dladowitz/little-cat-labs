@@ -1,3 +1,26 @@
+Given /A user without a cat/ do
+  @user = users(:volta)
+end
+
+Given /A user with a cat/ do
+  @user = users(:ohm)
+end
+
+
+And /the user signs in successfully/ do
+    visit signin_path
+    uri = URI.parse(current_url)
+    expect(uri.path).to eq signin_path
+
+    fill_in "email",                 with: @user.email
+    fill_in "password",              with: "asdfasdf"
+
+    click_button "Sign In"
+
+    expect(page).to have_content "Welcome, #{@user.first_name}"
+end
+
+
 And /they click on the signin link/ do
   click_link "Sign In"
 end

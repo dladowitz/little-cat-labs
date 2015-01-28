@@ -7,8 +7,12 @@ Rails.application.routes.draw do
   get    :signup,      to: "users#new",                  as: :signup
 
   # resource routes
-  resources :users
   resources :sessions, only: [:new, :create, :destroy]
+
+
+  resources :users do
+    resources :cats, only: [:create, :edit, :destroy, :update]
+  end
 
   resources :registrations, only: [:new, :create] do
     collection do

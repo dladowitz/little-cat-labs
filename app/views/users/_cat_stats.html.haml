@@ -1,0 +1,8 @@
+= "Name: #{@cat.name}"
+%br
+= "Age: #{@cat.age}"
+
+%br
+%br
+= link_to "Edit Cat", edit_user_cat_path(@user, @cat), class: "btn btn-info"
+= link_to "Delete Cat", user_cat_path(@user, @cat), method: :delete, class: "btn btn-danger"

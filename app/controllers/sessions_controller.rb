@@ -4,11 +4,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    binding.pry
     @user = User.find_by_email params[:email]
 
     if @user && @user.authenticate(params[:password])
-      session[:id] = @user.id
+      session[:user_id] = @user.id
 
       flash[:success] = "Welcome, #{@user.first_name}"
       redirect_to user_path(@user)
@@ -19,8 +18,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    if session[:id]
-      session[:id] = nil
+    if session[:user_id]
+      session[:user_id] = nil
       flash[:success] = "Bye Bye. Have fun storming the castle."
     else
       flash[:danger] = "Errr, you can't log out when you aren't logged in. That's science."

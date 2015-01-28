@@ -1,0 +1,10 @@
+= form_for [@user, @cat], html: { role: "form"} do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, placeholder: "Dusty", class: "form-control"
+  .form-group
+    = f.label :age
+    = f.number_field :age, placeholder: "5", class: "form-control"
+
+  %div
+    = f.submit "Add Cat", class: "btn btn-lg btn-primary pull-left"
