@@ -30,6 +30,12 @@ describe UsersController do
       it "does not create a new user in the database" do
         expect{ subject }.not_to change{ User.count }
       end
+
+      it "renders the new template and landing page layout" do
+        subject
+        expect(response).to render_template :new
+        expect(response).to render_template "landing_page/landing_layout"
+      end
     end
   end
 

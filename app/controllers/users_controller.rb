@@ -12,7 +12,8 @@ class UsersController < ApplicationController
       flash[:success] = "User account created successfully"
       redirect_to signin_path
     else
-      render :new
+      # without specifying layout this was rendering new and then rendering default layout after
+      render :new, layout: "landing_page/landing_layout"
     end
   end
 
