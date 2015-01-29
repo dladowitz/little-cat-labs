@@ -1,3 +1,6 @@
+# railsapps.github.io/rails-google-analytics.html
+
+
 class @GoogleAnalytics
 
   @load: ->
