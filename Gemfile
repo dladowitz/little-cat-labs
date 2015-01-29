@@ -12,7 +12,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'draper', '~> 1.3'
 gem 'font-awesome-rails'
 gem 'figaro'
-gem 'google-analytics-rails' # breaks when put in production group
 gem 'haml-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
