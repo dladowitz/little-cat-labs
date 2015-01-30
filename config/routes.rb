@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'weights/create'
+
   root to: "landing_pages#landing"
 
   # custom routes

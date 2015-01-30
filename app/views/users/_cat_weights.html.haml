@@ -13,4 +13,9 @@
               = f.label :amount
               = f.number_field :amount, step: 0.001, placeholder: 12.21, class: "form-control"
             .form-group
-              = f.submit class: "btn btn-primary pull-left"
+              = f.submit "Add Weight", class: "btn btn-primary pull-left"
+          %br
+
+          %ul.list-unstyled.m-t-md.mt50
+            - @weights.each do |weight|
+              %li= "#{weight.amount} lbs"

@@ -21,10 +21,10 @@ class UsersController < ApplicationController
     @page_name = "Homepage"
 
     @user = User.find_by_id params[:id]
-    @weight = Weight.new
 
     if @user
       set_cat
+
       render :show
     else
       redirect_to root_path
@@ -38,6 +38,13 @@ class UsersController < ApplicationController
   end
 
   def set_cat
-    @user.cats.present? ? @cat = @user.cats.first : @cat = Cat.new
+    @weight = Weight.new
+
+    if @user.cats.present?
+      @cat = @user.cats.first
+      @weights = @cat.weights
+    else
+      @cat = Cat.new
+    end
   end
 end
