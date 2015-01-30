@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     @page_name = "Homepage"
 
     @user = User.find_by_id params[:id]
+    @weight = Weight.new
 
     if @user
       set_cat

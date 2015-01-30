@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
 
   resources :users do
-    resources :cats, only: [:create, :edit, :destroy, :update]
+    resources :cats, only: [:create, :edit, :destroy, :update] do
+      resources :weights, only: [:create]
+    end
   end
 
   resources :registrations, only: [:new, :create] do

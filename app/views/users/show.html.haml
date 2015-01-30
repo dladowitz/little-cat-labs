@@ -5,3 +5,5 @@
     - else
       = render "users/cat_stats"
 
+  - if @cat.persisted?
+    = render "users/cat_weights"

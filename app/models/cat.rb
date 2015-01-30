@@ -16,4 +16,5 @@ class Cat < ActiveRecord::Base
   validates :age,     numericality: true, allow_blank: true
 
   belongs_to :user
+  has_many   :weights
 end
