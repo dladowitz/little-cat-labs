@@ -43,6 +43,7 @@ class UsersController < ApplicationController
     if @user.cats.present?
       @cat = @user.cats.first
       @weights = @cat.weights
+      @weight_amounts = @cat.weight_amounts
     else
       @cat = Cat.new
     end

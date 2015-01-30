@@ -17,4 +17,9 @@ class Cat < ActiveRecord::Base
 
   belongs_to :user
   has_many   :weights
+
+
+  def weight_amounts
+    self.weights.map{ |weight| weight.amount }
+  end
 end
