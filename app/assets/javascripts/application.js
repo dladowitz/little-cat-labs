@@ -14,5 +14,6 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
-//= require Chart
-//= require_tree .
+//= require rickshaw-rails
+//= require google_analytics
+

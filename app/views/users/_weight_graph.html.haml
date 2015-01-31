@@ -1,25 +1,8 @@
 .ibox.float-e-margins
+  .ibox-title
+    %h5
+      Simple area example
+      %small With custom colors.
+    .ibox-tools
   .ibox-content
-    %div
-      %span.pull-right.text-right
-        -#%small
-        -#  Average value of sales in the past month in:
-        -#  %strong United states
-        -#%br/
-        -#All sales: 162,862
-      %h1.m-b-xs= "#{@cat.name}'s Weight History"
-      -#%h3.font-bold.no-margins
-      -#  Half-year revenue margin
-      -#%small Sales marketing.
-    %div
-      %canvas#lineChart{:height => "70"}
-    -#.m-t-md
-      %small.pull-right
-        %i.fa.fa-clock-o
-        Update on 16.07.2015
-      %small
-        %strong Analysis of sales:
-        The value has been changed over time, and last month reached a level over $50,000.
-
-
-
+    #chart.rickshaw_graph

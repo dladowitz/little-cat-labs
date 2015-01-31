@@ -13,55 +13,62 @@
     = render "users/cat_weights"
 
 
-:javascript
-  $(document).ready(function() {
+- if @cat.persisted?
+  -#TODOD Need to do a content_for type thing here
+  :javascript
+    $(document).ready(function() {
 
-      var lineData = {
-          labels: ["January", "February", "March", "April", "May", "June", "July", "January", "February", "March", "April", "May", "June", "July"],
-          datasets: [
+      var weights = #{ @weights.map {|weight| weight.amount * 100 }};
+      var dates   = #{ @weights.map {|weight| weight.created_at.to_i }};
 
-              {
-                  label: "Example dataset",
-                  fillColor: "rgba(26,179,148,0.5)",
-                  strokeColor: "rgba(26,179,148,0.7)",
-                  pointColor: "rgba(26,179,148,1)",
-                  pointStrokeColor: "#fff",
-                  pointHighlightFill: "#fff",
-                  pointHighlightStroke: "rgba(26,179,148,1)",
-                  data: #{@weight_amounts}
-              },
+      var graph_data_points = []
 
-              //{
-              //    label: "Example dataset",
-              //    fillColor: "rgba(220,220,220,0.5)",
-              //    strokeColor: "rgba(220,220,220,1)",
-              //    pointColor: "rgba(220,220,220,1)",
-              //    pointStrokeColor: "#fff",
-              //    pointHighlightFill: "#fff",
-              //    pointHighlightStroke: "rgba(220,220,220,1)",
-              //    data: [65, 59, 80, 81, 56, 55, 40]
-              //}
-          ]
+      for(i = 0; i < weights.length; i++){
+        point = {x: dates[i], y: weights[i]};
+        graph_data_points.push(point);
       };
 
-      var lineOptions = {
-          scaleShowGridLines: true,
-          scaleGridLineColor: "rgba(0,0,0,.05)",
-          scaleGridLineWidth: 1,
-          bezierCurve: true,
-          bezierCurveTension: 0.4,
-          pointDot: true,
-          pointDotRadius: 4,
-          pointDotStrokeWidth: 1,
-          pointHitDetectionRadius: 20,
-          datasetStroke: true,
-          datasetStrokeWidth: 2,
-          datasetFill: true,
-          responsive: true,
-      };
+      //For some reason an extra y0: point is being added. Only when using y for weight. Not sure why.
+      //console.log(graph_data_points)
 
+      var graph = new Rickshaw.Graph( {
+        element: document.querySelector("#chart"),
+        renderer: 'area',
+        //height: 300,
+        series: [{
+            color: '#1ab394',
+            data: graph_data_points,
+            name: "lbs"
+        }]
+      });
 
-      var ctx = document.getElementById("lineChart").getContext("2d");
-      var myNewChart = new Chart(ctx).Line(lineData, lineOptions);
+      //X Axis
+      var time = new Rickshaw.Fixtures.Time();
+      var minutes = time.unit('minute');
 
-  });
+      var xAxis = new Rickshaw.Graph.Axis.Time({
+        graph: graph,
+        timeUnit: minutes
+      });
+      xAxis.render();
+
+      //Y Axis
+      //var yAxis = new Rickshaw.Graph.Axis.Y({
+      //  graph: graph,
+      //  orientation: 'left',
+      //  element: document.getElementById('chart'),
+      //});
+      //yAxis.render();
+
+      ////Adds hover functions
+      var hoverDetail = new Rickshaw.Graph.HoverDetail( {graph: graph } );
+
+      //Line smoothing amount. Not sure how this shit works
+      //http://code.shutterstock.com/rickshaw/examples/extensions.html
+      //var smoother = new Rickshaw.Graph.Smoother( {
+      //  graph: graph,
+      //  element: document.querySelector('#smoother')
+      //} )
+
+      graph.render();
+    });
