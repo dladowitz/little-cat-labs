@@ -1,3 +1,5 @@
-@media (max-width: 600px) {
-  .sidebar-collapse { display: none}
+@media (max-width: 1000px) {
+  .navbar-default{ display: none}
+
+  #page-wrapper{ margin: 0}
 }

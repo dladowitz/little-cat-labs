@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   #TODO move these out to a module
   rescue_from CanCan::AccessDenied do |exception|
     flash[:danger] = "You are not authorized for this page. All your bases are belong to us."
-    binding.pry
     redirect_to user_path(current_user)
   end
 
