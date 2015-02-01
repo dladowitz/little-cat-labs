@@ -8,8 +8,7 @@ for(i = 0; i < weights.length; i++){
   graph_data_points.push(point);
 };
 
-//For some reason an extra y0: point is being added. Only when using y for weight. Not sure why.
-console.log(graph_data_points);
+//console.log(graph_data_points);
 
 AmCharts.makeChart("chartdiv",
   {
@@ -19,6 +18,7 @@ AmCharts.makeChart("chartdiv",
     "startDuration": 1,
     "fontFamily": "",
     "theme": "light",
+    "dataDateFormat": "YYYY-MM-DD HH:NN:SS",
     "categoryAxis": {
       "gridPosition": "start",
 
