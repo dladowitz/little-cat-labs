@@ -22,7 +22,8 @@ end
 
 And /they see the user homepage/ do
   uri = URI.parse(current_url)
-  expect(uri.path).to eq user_path(current_user)
+  # expect(uri.path).to eq user_path(current_user) # need access to current_user method
 
-  expect(page).to have_content "Thanks for Signing Up"
+  expect(page).to have_content "Andre"
+  expect(page).to have_content "User account created successfully"
 end

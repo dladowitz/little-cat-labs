@@ -10,13 +10,15 @@
         %table.table
           %thead
             %tr
-              %th Amount (lbs)
+              %th Amount
               %th Date
               %th Delete
           %tbody
             - @weights.last(10).reverse.each do |weight|
               %tr
-                %td= weight.amount
+                %td
+                  = number_with_precision( weight.amount, precision: 2)
+                  lbs
                 %td= weight.created_at.strftime("%b %e, %Y - %l:%M %p")
                 %td= link_to "x", user_cat_weight_path(@user, @cat, weight), method: :delete, class: "btn btn-xs btn-danger ml20"
 

@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @page_name = "Homepage"
+    @page_name = "My Dashboard"
 
     if @user
       set_cat
