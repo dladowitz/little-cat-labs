@@ -143,6 +143,9 @@
 .ml10 {
   margin-left: 10px;
 }
+.ml9 {
+  margin-left: 9px;
+}
 
 .ml12 {
   margin-left: 12px;
@@ -174,6 +177,10 @@
 
 .mr5 {
   margin-right: 5px;
+}
+
+.mr9 {
+  margin-right: 9px;
 }
 
 .mr10 {

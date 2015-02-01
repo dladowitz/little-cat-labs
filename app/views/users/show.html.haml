@@ -1,6 +1,13 @@
-.row
-  .col-lg-12
-    = render "users/weight_graph"
+= content_for :head do
+  -# amCharts javascript sources
+  %script{:src => "http://cdn.amcharts.com/lib/3/amcharts.js", :type => "text/javascript"}
+  %script{:src => "http://cdn.amcharts.com/lib/3/serial.js", :type => "text/javascript"}
+  %script{:src => "http://cdn.amcharts.com/lib/3/themes/light.js", :type => "text/javascript"}
+
+- if @cat.persisted? && @cat.weights.present?
+  .row
+    .col-lg-12
+      = render "users/weight_graph"
 
 .row
   .col-lg-6
@@ -12,131 +19,11 @@
   - if @cat.persisted?
     = render "users/cat_weights"
 
-
-- if @cat.persisted?
-  -#TODOD Need to do a content_for type thing here
-  :javascript
-
-    var weights = #{ @weights.map {|weight| weight.amount }};
-    var dates   = #{ @weights.map {|weight| weight.created_at.to_s }};
-    var graph_data_points = []
-
-
-    for(i = 0; i < weights.length; i++){
-      point = {"category": dates[i], "column-1": weights[i]};
-      graph_data_points.push(point);
-    };
-
-    //For some reason an extra y0: point is being added. Only when using y for weight. Not sure why.
-    console.log(graph_data_points);
-
-    AmCharts.makeChart("chartdiv",
-      {
-        "type": "serial",
-        "pathToImages": "http://cdn.amcharts.com/lib/3/images/",
-        "categoryField": "category",
-        "startDuration": 1,
-        "fontFamily": "",
-        "theme": "light",
-        "categoryAxis": {
-          "gridPosition": "start",
-          "minPeriod": "ss",
-          "parseDates": true
-        },
-        "chartCursor": {
-          "avoidBalloonOverlapping": false,
-          "valueLineBalloonEnabled": true
-        },
-        "trendLines": [],
-        "graphs": [
-          {
-            "balloonText": "[[title]] of [[category]]:[[value]]",
-            "bullet": "round",
-            "id": "AmGraph-1",
-            "title": "Weight",
-            "valueAxis": "Not set",
-            "valueField": "column-1",
-            "visibleInLegend": false
-          }
-        ],
-        "guides": [],
-        "valueAxes": [
-          {
-            "id": "ValueAxis-1",
-            "title": "Lbs"
-          }
-        ],
-        "allLabels": [],
-        "balloon": {},
-        "legend": {
-          "useGraphSettings": true
-        },
-        "titles": [
-          {
-            "id": "Title-1",
-            "size": 24,
-            "text": "Weight History"
-          }
-        ],
-        "dataProvider": graph_data_points
-      }
-    );
-
-
-  -#:javascript
-    $(document).ready(function() {
-
+- if @cat.weights.present?
+  = content_for :javascript do
+    :javascript
+      //Need to set these variables so they are available in the js file
       var weights = #{ @weights.map {|weight| weight.amount }};
-      var dates   = #{ @weights.map {|weight| weight.created_at.to_i }};
+      var dates   = #{ @weights.map {|weight| weight.created_at.to_s }};
 
-      var graph_data_points = []
-
-      for(i = 0; i < weights.length; i++){
-        point = {x: dates[i], y: weights[i]};
-        graph_data_points.push(point);
-      };
-
-      //For some reason an extra y0: point is being added. Only when using y for weight. Not sure why.
-      //console.log(graph_data_points)
-
-      var graph = new Rickshaw.Graph( {
-        element: document.querySelector("#chart"),
-        renderer: 'area',
-        //height: 300,
-        series: [{
-            color: '#1ab394',
-            data: graph_data_points,
-            name: "lbs"
-        }]
-      });
-
-      //X Axis
-      var time = new Rickshaw.Fixtures.Time();
-      var days = time.unit('days');
-
-      var xAxis = new Rickshaw.Graph.Axis.Time({
-        graph: graph,
-        timeUnit: days
-      });
-      xAxis.render();
-
-      //Y Axis
-      //var yAxis = new Rickshaw.Graph.Axis.Y({
-      //  graph: graph,
-      //  orientation: 'left',
-      //  element: document.getElementById('chart'),
-      //});
-      //yAxis.render();
-
-      ////Adds hover functions
-      var hoverDetail = new Rickshaw.Graph.HoverDetail( {graph: graph } );
-
-      //Line smoothing amount. Not sure how this shit works
-      //http://code.shutterstock.com/rickshaw/examples/extensions.html
-      //var smoother = new Rickshaw.Graph.Smoother( {
-      //  graph: graph,
-      //  element: document.querySelector('#smoother')
-      //} )
-
-      graph.render();
-    });
+    = javascript_include_tag 'weight_graph', 'data-turbolinks-track' => true
