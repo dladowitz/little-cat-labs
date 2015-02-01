@@ -18,17 +18,16 @@
  */
 
 
-  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
-  @import "bootstrap-sprockets";
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
 
 //Bootstrap is overwriting style.css when called from the gem. Maybe find a way to have style called last
 //  @import "bootstrap";
 
 @import "font-awesome";
 
+//Includes D3.js
+@import "rickshaw-rails";
 
-  //Site wide styles
 
-  h1 {
-    color: red;
-  }
+//Site wide styles

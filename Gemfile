@@ -18,6 +18,7 @@ gem 'jquery-rails'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'nokogiri'
 gem 'premailer-rails'
+gem 'rickshaw-rails', '~> 1.5.0'
 gem 'sass-rails', '~> 4.0.3'
 gem 'therubyracer', platforms: :ruby
 gem 'thin'

@@ -1,3 +1,14 @@
+= content_for :head do
+  -# amCharts javascript sources
+  %script{:src => "http://cdn.amcharts.com/lib/3/amcharts.js", :type => "text/javascript"}
+  %script{:src => "http://cdn.amcharts.com/lib/3/serial.js", :type => "text/javascript"}
+  %script{:src => "http://cdn.amcharts.com/lib/3/themes/light.js", :type => "text/javascript"}
+
+- if @cat.persisted? && @cat.weights.present?
+  .row
+    .col-lg-12
+      = render "users/weight_graph"
+
 .row
   .col-lg-6
     - if @cat.new_record?
@@ -7,3 +18,12 @@
 
   - if @cat.persisted?
     = render "users/cat_weights"
+
+- if @cat.weights.present?
+  = content_for :javascript do
+    :javascript
+      //Need to set these variables so they are available in the js file
+      var weights = #{ @weights.map {|weight| weight.amount }};
+      var dates   = #{ @weights.map {|weight| weight.created_at.to_s }};
+
+    = javascript_include_tag 'weight_graph', 'data-turbolinks-track' => true

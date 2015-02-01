@@ -17,4 +17,20 @@ class Cat < ActiveRecord::Base
 
   belongs_to :user
   has_many   :weights
+
+
+  def weight_amounts
+    self.weights.map{ |weight| weight.amount }
+  end
+
+  def graph_points
+    graph_points = []
+
+    self.weights.each do |weight|
+      graph_points << { x: weight.created_at.to_i, y: weight.amount }
+    end
+
+    graph_points
+  end
 end
+

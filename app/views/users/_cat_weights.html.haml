@@ -19,7 +19,7 @@
           %ul.list-unstyled.m-t-md.mt50
             - @weights.each do |weight|
               %li
-                %span.fsize-15
+                %span.fsize-15{class: ("ml10" if weight.amount < 10)}
                   = "#{number_with_precision(weight.amount, precision: 2)} lbs"
                 %span
                   = link_to "x", user_cat_weight_path(@user, @cat, weight), method: :delete, class: "btn btn-xs btn-danger ml20"
