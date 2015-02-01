@@ -1,16 +1,18 @@
 class UsersController < ApplicationController
-  def new
-    @user = User.new
+  load_and_authorize_resource
 
+  def new
     render layout: "landing_page/landing_layout"
   end
 
   def create
-    @user = User.new user_params
-
     if @user.save
       flash[:success] = "User account created successfully"
-      redirect_to signin_path
+
+      #should make a login(user) method
+      session[:user_id] = @user.id
+
+      redirect_to user_path(@user)
     else
       # without specifying layout this was rendering new and then rendering default layout after
       render :new, layout: "landing_page/landing_layout"
@@ -19,8 +21,6 @@ class UsersController < ApplicationController
 
   def show
     @page_name = "Homepage"
-
-    @user = User.find_by_id params[:id]
 
     if @user
       set_cat
@@ -38,6 +38,7 @@ class UsersController < ApplicationController
   end
 
   def set_cat
+    #TODO move to it's own method or rename
     @weight = Weight.new
 
     if @user.cats.present?

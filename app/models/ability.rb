@@ -1,10 +1,24 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  # 'current_user' is being passed in as local variable 'current_user'. The helper method #current_user is unavailable
+  def initialize(current_user)
+
     # Define abilities for the passed in user here. For example:
-    #
-    #   user ||= User.new # guest user (not logged in)
+    current_user ||= User.new # guest user (not logged in)
+
+
+    if current_user.admin?
+      can :manage, :all
+    else
+      can [:new, :create],  User
+      can :show, User do |user_record|
+        current_user.id == user_record.id
+      end
+    end
+
+
+
     #   if user.admin?
     #     can :manage, :all
     #   else

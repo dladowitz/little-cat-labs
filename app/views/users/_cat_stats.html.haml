@@ -6,10 +6,10 @@
   .ibox-content
     %h3
       Age:
-      = @cat.age
+      = @cat.age ? @cat.age : "unknown"
 
     %small
-      meow mewo
+      meow mrrooow
 
     .mt40
       = link_to "Edit Cat", edit_user_cat_path(@user, @cat), class: "btn btn-info"

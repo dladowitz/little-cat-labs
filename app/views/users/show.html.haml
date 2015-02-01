@@ -10,21 +10,23 @@
       #weight_graph
         = render "users/weight_graph"
 
-- if @cat.persisted?
-  .row
+
+.row
+  - if @cat.persisted?
     .col-lg-6
       #add_weight
         = render "users/add_weight"
 
-      #cat_weights
-        = render "users/cat_weights"
+      -if @cat.weights.any?
+        #cat_weights
+          = render "users/cat_weights"
 
-    .col-lg-6
-      #cat_info
-        - if @cat.new_record?
-          = render "users/add_new_cat_form"
-        - else
-          = render "users/cat_stats"
+  .col-lg-6
+    #cat_info
+      - if @cat.new_record?
+        = render "users/add_new_cat_form"
+      - else
+        = render "users/cat_stats"
 
 
 - if @cat.weights.present?
