@@ -8,7 +8,6 @@
           %input#top-search.form-control{:name => "top-search", :placeholder => "Search for something...", :type => "text"}/
     %ul.nav.navbar-top-links.navbar-right
       %li
-        -#Not sure how but session_path is adding the correct id at the end
-        = link_to session_path, method: :delete do
+        = link_to session_path(session[:user_id]), method: :delete do
           Sign Out
           %i.fa.fa-sign-out

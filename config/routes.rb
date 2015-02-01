@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :cats, only: [:create, :edit, :destroy, :update] do
-      resources :weights, only: [:create, :destroy]
+      resources :weights, only: [:create, :destroy, :index]
     end
   end
 

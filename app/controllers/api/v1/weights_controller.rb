@@ -23,4 +23,8 @@ end
 
 
 # Test post command
-# curl -H "Content-Type: application/json" -d '{"weight_amount":"13.5", "cat_id":"30", "scale_id": "001"}' http://localhost:3000/api/v1/weights
+# curl -H "Content-Type: application/json" -d '{"weight_amount":"11.5", "cat_id":"30", "scale_id": "001"}' http://localhost:3000/api/v1/weights
+# curl -H "Content-Type: application/json" -d '{"weight_amount":"12", "cat_id":"30", "scale_id": "001"}' http://localhost:3000/api/v1/weights
+# curl -H "Content-Type: application/json" -d '{"weight_amount":"14.5", "cat_id":"30", "scale_id": "001"}' http://localhost:3000/api/v1/weights
+# curl -H "Content-Type: application/json" -d '{"weight_amount":"15.0", "cat_id":"30", "scale_id": "001"}' http://localhost:3000/api/v1/weights
+# curl -H "Content-Type: application/json" -d '{"weight_amount":"13.75", "cat_id":"30", "scale_id": "001"}' http://localhost:3000/api/v1/weights

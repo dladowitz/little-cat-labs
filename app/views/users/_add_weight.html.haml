@@ -1,0 +1,15 @@
+.ibox.float-e-margins
+  .ibox-title
+    %h2 Add Weight
+
+  .ibox-content
+    .row
+      .col-sm-10
+        %h3.m-t-none.m-b
+          Record the latest weight
+        = form_for [@user, @cat, @weight], html: { role: "form" } do |f|
+          .form-group
+            = f.label :amount, "Amount (lbs)"
+            = f.number_field :amount, step: 0.001, placeholder: 12.40, class: "form-control"
+          .form-group
+            = f.submit "Add Weight", class: "btn btn-primary pull-left"

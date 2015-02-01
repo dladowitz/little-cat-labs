@@ -7,17 +7,25 @@
 - if @cat.persisted? && @cat.weights.present?
   .row
     .col-lg-12
-      = render "users/weight_graph"
+      #weight_graph
+        = render "users/weight_graph"
 
-.row
-  .col-lg-6
-    - if @cat.new_record?
-      = render "users/add_new_cat_form"
-    - else
-      = render "users/cat_stats"
+- if @cat.persisted?
+  .row
+    .col-lg-6
+      #add_weight
+        = render "users/add_weight"
 
-  - if @cat.persisted?
-    = render "users/cat_weights"
+      #cat_weights
+        = render "users/cat_weights"
+
+    .col-lg-6
+      #cat_info
+        - if @cat.new_record?
+          = render "users/add_new_cat_form"
+        - else
+          = render "users/cat_stats"
+
 
 - if @cat.weights.present?
   = content_for :javascript do

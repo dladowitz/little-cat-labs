@@ -27,6 +27,16 @@ class WeightsController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  #TODO create spec and cucumber test
+  def index
+
+    @cat = Cat.find_by_id params[:cat_id]
+    @user = User.find_by_id params[:user_id]
+    if @cat
+      @weights = @cat.weights
+    end
+  end
+
 
   private
 

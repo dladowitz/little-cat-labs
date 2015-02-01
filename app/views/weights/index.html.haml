@@ -6,7 +6,7 @@
     .row
       .col-sm-10
         %h3.m-t-none.m-b
-          Most Recent Weights
+          Last 100 Weights
         %table.table
           %thead
             %tr
@@ -14,10 +14,10 @@
               %th Date
               %th Delete
           %tbody
-            - @weights.last(10).reverse.each do |weight|
+            - @cat.weights.last(100).reverse.each do |weight|
               %tr
                 %td= weight.amount
                 %td= weight.created_at.strftime("%b %e, %Y - %l:%M %p")
                 %td= link_to "x", user_cat_weight_path(@user, @cat, weight), method: :delete, class: "btn btn-xs btn-danger ml20"
 
-        = link_to "View All Weights", user_cat_weights_path(@user, @cat)
+        = link_to "View Graph", user_path(@user)
