@@ -8,9 +8,11 @@
               %span.sr-only Toggle navigation
               %i.fa.fa-bars
             %h1.navbar-brand
-
               %a{:style => "font-size: 35px", :href => "#header"}
                 = image_tag "logo_handwriting.png", height: 55, id: "logo"
+            = link_to "Register", "/signup", class: "btn btn-primary"
+            = link_to "Sign In", "/signin", class: "btn btn-primary"
+
           #navbar-collapse-1.collapse.navbar-collapse
             %ul#navigation.nav.navbar-nav.navbar-right
               %li.active

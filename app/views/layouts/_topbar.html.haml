@@ -7,7 +7,7 @@
         .form-group
           %input#top-search.form-control{:name => "top-search", :placeholder => "Search for something...", :type => "text"}/
     %ul.nav.navbar-top-links.navbar-right
-      %li
+      %li#signout
         = link_to session_path(session[:user_id]), method: :delete do
           Sign Out
           %i.fa.fa-sign-out
