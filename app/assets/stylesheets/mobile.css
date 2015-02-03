@@ -3,6 +3,12 @@
 
 /*http://stackoverflow.com/questions/16459358/media-queries-on-retina-enabled-devices*/
 
+/*used to hide registration and signing buttons on landing page*/
+.navbar-header a {
+  display: none;
+}
+
+
 /*Retinal Display devices, tested on iphone 5*/
 @media
   only screen and (-webkit-min-device-pixel-ratio: 2),
