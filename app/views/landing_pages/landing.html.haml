@@ -11,7 +11,7 @@
               %a{:style => "font-size: 35px", :href => "#header"}
                 = image_tag "logo_handwriting.png", height: 55, id: "logo"
             = link_to "Register", "/signup", class: "btn btn-primary"
-            = link_to "Sign In", "/signin", class: "btn btn-primary"
+            = link_to "Sign In", "/signin", class: "btn btn-primary", id: "mobile_sign_in"
 
           #navbar-collapse-1.collapse.navbar-collapse
             %ul#navigation.nav.navbar-nav.navbar-right
@@ -31,7 +31,7 @@
               %li
                 %a.external{href: "/registrations/new"} Register
               %li
-                %a.external{href: "/signin"} Sign In
+                %a.external{href: "/signin", id: "laptop_sign_in"} Sign In
     %main#main.site-main
       %section#carousel-1.carousel.slide.section-slide{"data-ride" => "carousel"}
         .carousel-inner

@@ -22,7 +22,7 @@ end
 
 
 And /they click on the signin link/ do
-  click_link "Sign In"
+  click_link "laptop_sign_in"
 end
 
 And /they fill out the signin form/ do
