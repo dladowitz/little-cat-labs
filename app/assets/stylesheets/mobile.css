@@ -1,77 +1,86 @@
 
 /*Not really sure best approach to tackle all phones*/
+/*iphone simulators seems to be 979px wide for some reason*/
 
+/*http://stephen.io/mediaqueries/*/
 /*http://stackoverflow.com/questions/16459358/media-queries-on-retina-enabled-devices*/
 
-/*used to hide registration and signing buttons on landing page*/
+/*Used to hide registration and signing buttons on landing page*/
+/*For laptops and desktops*/
   .navbar-header a {
     display: none;
   }
 
 
-/*Retinal Display devices*/
-/*Confirmed on: iPhone 4s, 5, 5s, & 6, iPad Retina & Air*/
-/*Not working on: iPad 2*/
+/*Old method for retina ios devices*/
+/*@media*/
+  /*only screen and (-webkit-min-device-pixel-ratio: 2),*/
+  /*only screen and (min-resolution: 192dpi) { styles here }*/
 
-@media
-  only screen and (-webkit-min-device-pixel-ratio: 2),
-  only screen and (min-resolution: 192dpi) {
 
-    /*User Show Page*/
-    #page-wrapper {
-      margin: 0;
-    }
-    .navbar-default {
-      display: none;
-    }
 
-    .navbar-header a {
-      display: inline-block;
-    }
+/*This seems to work on ios devices*/
+/*Confirmed on: iPhone 4s, 5, 5s, & 6, iPad 2, Retina & Air*/
 
-    h1 {
-        font-size: 100px;
-    }
+@media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 1024px) {
 
-    h2 {
-         font-size: 60px;
-    }
+  /*User Show Page*/
+  #page-wrapper {
+    margin: 0;
+  }
+  .navbar-default {
+    display: none;
+  }
 
-    h3 { font-size: 50px; }
+  .navbar-header a {
+    display: inline-block;
+  }
 
-    .ibox-title {
-      height: 100px;
-    }
+  h1 {
+    font-size: 100px;
+  }
 
-    #add_weight .btn {
-      font-size: 65px;
-      padding: 25px;
-    }
+  h2 {
+    font-size: 60px;
+  }
 
-    input.form-control {
-      height: 120px;
-      font-size: 70px;
-    }
+  h3 { font-size: 50px; }
 
-    #signout a {
-      font-size: 30px;
-    }
+  .ibox-title {
+    height: 100px;
+  }
 
-    td {
-      font-size: 35px;
-    }
+  #add_weight .btn {
+    font-size: 65px;
+    padding: 25px;
+  }
 
-    th {
-      font-size: 35px;
-    }
+  input.form-control {
+    height: 120px;
+    font-size: 70px;
+  }
 
-    label {
-      font-size: 35px;
-    }
+  #signout a {
+    font-size: 30px;
+  }
 
-    #chartdiv {
-      height: 800px;
-    }
+  td {
+    font-size: 35px;
+  }
+
+  th {
+    font-size: 35px;
+  }
+
+  label {
+    font-size: 35px;
+  }
+
+  #chartdiv {
+    height: 800px;
+  }
 
 
   /*Signin Page*/
@@ -129,18 +138,3 @@
     padding-top:150px
   }
 }
-
-
-/*Screen widths below 500px*/
-@media (max-width: 500px){
-  .navbar-default{ display: none}
-  #page-wrapper{ margin: 0}
-}
-
-
-
-
-/*iphone simulators seems to be 979px wide for some reason*/
-/*568 x 320 (which is the 1136 x 64*/
-
-
