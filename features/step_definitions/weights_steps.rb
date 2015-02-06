@@ -6,8 +6,11 @@ end
 
 Then /the user adds a weight in pounds and ounces to her cats account/ do
   choose("Pounds and Ounces")
-  fill_in "weight_amount_pounds", with: 12
-  fill_in "wieght_amound_ounces", with: 4
+
+  # need javascript to have these fields show up
+  fill_in "pounds", with: 12
+  fill_in "ounces", with: 4
+  
   click_button "Add Weight"
   expect(page).to have_content "12.25 lbs"
 end

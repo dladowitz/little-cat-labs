@@ -32,8 +32,18 @@
 - if @cat.weights.present?
   = content_for :javascript do
     :javascript
+
+
+
+
       //Need to set these variables so they are available in the js file
       var weights = #{ @weights.map {|weight| weight.amount }};
       var dates   = #{ @weights.map {|weight| weight.created_at.to_s }};
 
+    -#= javascript_include_tag 'icheck.min',  'data-turbolinks-track' => true
     = javascript_include_tag 'weight_graph', 'data-turbolinks-track' => true
+    = javascript_include_tag 'add_weight',  'data-turbolinks-track' => true
+
+
+
+

@@ -6,10 +6,29 @@
     .row
       .col-sm-10
         %h3.m-t-none.m-b
-          Record the latest weight
+          Record the latest weight in:
+          #weight-formating
+            .form-group
+              .div
+                = radio_button_tag :format, "decimal", true
+                = label_tag :format_decimal, "Decimal"
+              .div
+                = radio_button_tag :format, "pounds_ounces"
+                = label_tag :format_pounds_ounces, "Pounds and Ounces"
+
         = form_for [@user, @cat, @weight], html: { role: "form" } do |f|
-          .form-group
-            = f.label :amount, "Amount (lbs)"
-            = f.number_field :amount, step: 0.001, placeholder: 12.40, class: "form-control"
+          #pounds-decimal
+            .form-group
+              = f.label :amount, "Amount (lbs)"
+              = f.number_field :amount, step: 0.001, placeholder: 12.40, min: 0, max: 35, class: "form-control"
+
+          -#Initially hidden
+          #pounds-ounces{style: "display: none"}
+            .form_group
+              = label_tag :pounds
+              = number_field_tag :pounds, nil, placeholder: 12, min: 0, max: 35, class: "form-control"
+              = label_tag :ounces
+              = number_field_tag :ounces, nil, placeholder: 4, min: 0, max: 16, class: "form-control"
+
           .form-group
             = f.submit "Add Weight", class: "btn btn-primary pull-left"
