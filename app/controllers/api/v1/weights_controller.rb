@@ -5,15 +5,29 @@ module Api
       # TODO figure out what this does. Is it a security risk.
       skip_before_filter :verify_authenticity_token
 
-      respond_to :json
+      respond_to :html, :json
+
+      def index
+        render plain: "Nothing to see here"
+      end
 
       def create
         # Need to create some kind of authentication
         # Not sure why cat_id is inside of weight hash in params
 
         if params[:scale_id] == "001"
-          weight = Weight.create(amount: params[:weight_amount], cat_id: params[:cat_id])
-          respond_with :api, :v1, weight
+
+          respond_to do |format|
+            format.html do
+              weight = Weight.create(amount: params[:weight_amount], cat_id: params[:cat_id])
+              respond_with :api, :v1, weight
+            end
+
+            format.json do
+              weight = Weight.create(amount: params[:weight_amount], cat_id: params[:cat_id])
+              respond_with :api, :v1, weight
+            end
+          end
         end
       end
     end
