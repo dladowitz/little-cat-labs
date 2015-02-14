@@ -29,7 +29,7 @@
                 %a{:href => "#footer"} Contact
               %li ______
               %li
-                %a.external{href: "/registrations/new"} Register
+                %a.external{href: "/signup"} Signup
               %li
                 %a.external{href: "/signin", id: "laptop_sign_in"} Sign In
     %main#main.site-main
@@ -93,10 +93,10 @@
           .col-md-1.col-md-offset-2.mt30
             = image_tag "aiko_right.png", height: 100
           .col-md-6.col-md-offset-0
-            %h3 We are in the processes of building a set of tools to help owners reduce the weight of their cats. Sign up to get email updates on our progress and suggestions on how to help your pet immediately.
+            %h3 We are in the processes of building a set of tools to help owners reduce the weight of their cats. Sign up now and start keeping track of your cats weight.
             %br
-          .col-md-4.col-md-offset-4.col-sm-4
-            %a.smooth-scroll.btn.btn-lg.btn-block.btn-danger{:href => "/registrations/new"} Register to Hear More
+          .col-md-4.col-md-offset-4.col-sm-3
+            %a.smooth-scroll.btn.btn-lg.btn-block.btn-danger{:href => "/signup"} Sign Up
 
       %section#carousel-2.carousel.slide.section-slide{"data-ride" => "carousel"}
         .carousel-inner
@@ -152,8 +152,10 @@
                           %td Enter weights online to track
                         %tr
                           %td Recommendations for weight loss
+                        %tr.active
+                          %td Available Now
                   %footer.panel-footer
-                    %a.btn.btn-primary{:href => "/registrations/new"} Register
+                    %a.btn.btn-primary{:href => "/signup"} Sign Up
               .col-sm-4
                 .panel.panel-primary
                   %header.panel-heading
@@ -172,8 +174,10 @@
                           %td Scale automatically saves weights
                         %tr
                           %td Recommendations for weight loss
+                        %tr.active
+                          %td Coming Soon
                   %footer.panel-footer
-                    %a.btn.btn-primary{:href => "/registrations/new"} Register
+                    %a.btn.btn-primary{:href => "/scale_status"} Learn More
       %section#carousel-3.carousel.slide.section-slide{"data-ride" => "carousel"}
         .carousel-inner
           .item.active{:style => "background: url(assets/background/dusty_wide_dark_2.jpg);"}

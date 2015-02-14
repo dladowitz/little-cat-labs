@@ -1,0 +1,41 @@
+.container
+  .logo{style: "width: 50%; margin: 20px auto"}
+    = link_to "http://www.littlecatlabs.co/" do
+      = image_tag attachments["logo_handwriting.png"].url
+
+
+  .col-md-8.col-md-offset-2.mt50
+    .panel.panel-success
+      .panel-heading{style: "background-color: yellowgreen !important"}
+        .panel-title
+          %h2.text-center Thanks for signing up.
+      .panel-body.pr30.pl30
+        %h3.text-center Keep an eye out for updates in the coming weeks.
+        %p
+          We are planning on rolling out some great tools to help your cat loose weight.
+          We've found that the first step is the ability to monitor your cat's weight. Without that your just guessing.
+        %p
+          Out first tool is available now. You weigh your cat at home and enter it's weight in our online tracker.
+          Chart your cat's weight over time to help keep you motivated on you cats weight loss goal.
+        %P
+          You'll need your own scale to weigh your cat, which can be hard since most human scales aren't accurate below 30lbs.
+          So we are also building a wireless pet scale. By placing the scale by your cats food it will automatically send us data any time your cat steps on it.
+          The scale is still in development, but check back to see our progress.
+          = link_to "Scale Status", "http://www.littlecatlabs.co/scale_status", class: "blue underline"
+
+        %h3 Things you can start doing now
+        %ul
+          %li Don't leave food out all day long (cats tend to eat more than is good for them)
+          %li If you have multiple cats feed them separately so you can control how much they each eat
+          %li Schedule times to play with them. Use some kind of toy that will get them running and active
+          %li Start measuring out our cats food so you have a baseline for how much they eat.
+
+
+        %h3 Check out some cat videos
+        %p
+          Because the internet runs on
+          = link_to "cat videos.", "https://www.youtube.com/watch?v=G4Sn91t1V4g&list=PLRJ3wP0JDyti94Op1oLm4fKZEtC_c36NI", class: "underline blue"
+
+      .panel-footer
+        %h5
+        =link_to "Little Cat Labs", "http://www.littlecatlabs.co", class: "blue underline text-center"
