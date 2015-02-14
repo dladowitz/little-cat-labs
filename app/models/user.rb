@@ -10,6 +10,8 @@
 #  admin           :boolean
 #  created_at      :datetime
 #  updated_at      :datetime
+#  scale_id        :integer
+#  scale_password  :string(255)
 #
 
 class User < ActiveRecord::Base

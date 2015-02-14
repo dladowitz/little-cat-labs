@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150130003353) do
+ActiveRecord::Schema.define(version: 20150214070911) do
 
   create_table "cats", force: true do |t|
     t.string   "name"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20150130003353) do
     t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "scale_id"
+    t.string   "scale_password"
   end
 
   create_table "weights", force: true do |t|
