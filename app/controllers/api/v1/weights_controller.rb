@@ -43,6 +43,7 @@ end
 
 
 # Test post command
+# curl http://www.littlecatlabs.co/api/v1/weights --data "scale_id=10577&scale_password=littlecatlabs&weight_amount=10.65"
 # curl -H "Content-Type: application/json" -d '{"weight_amount":"11.5",  "cat_id":"30", "scale_id": "001"}' http://localhost:3000/api/v1/weights
 # curl -H "Content-Type: application/json" -d '{"weight_amount":"12",    "cat_id":"30", "scale_id": "001"}' http://localhost:3000/api/v1/weights
 # curl -H "Content-Type: application/json" -d '{"weight_amount":"14.5",  "cat_id":"30", "scale_id": "001"}' http://localhost:3000/api/v1/weights
