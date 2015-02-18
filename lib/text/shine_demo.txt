@@ -1,0 +1,76 @@
+Shine Demo 2/18/15
+
+I wanted to work on one of the really big problems in america today.
+Something so big it either affects you or someone you know.
+So what did I do? Well I built an internet connected scale to weigh things.
+What things? Well cats specifically.
+
+Wait cats? Yeah cats.
+And I know it sounds funny at first.
+But here me out. I haven't taken societies body image issues and extended it to cats or anything that crazy.
+
+About five months ago I took my cat to the vet for growth on it's chin.
+The vet said, don't worry about that, it's cat acne. But you're cat is overweight.
+It needs to go on a diet now.
+
+Ok, so I started reading up on how to help my cat, Aiko, loose weight.
+And according to a bunch of research it turns out 50% of cats are overweight.
+And guess how many cats there are in america? 100 million. So that 50 million overweight cats.
+I started talking to vets, and vet techs and managers at pet supply stores.
+All of them agreed that most cats are overwieght and it's a health issue that degrades quality of life in older years.
+Cats get arthritis, joint issues, diabetes, and even heart problems.
+Probably the most noticable is some cats stop jumping up and down because it hurts their joints.
+
+First off I didn't actually know how much my cat was eating. So I started there and tried to feed her less.
+But she would cry for food all the time. To be fair, she cried for food all the time before.
+But now it was harder because I was actively telling her 'No more food'.
+
+And this kind of worked for a week or so, but then I'd feel bad.
+And since I didn't really know what her weight was I'd give in.
+
+So I figured I needed to weigh her to know what was happening.
+I had a scale at my house, but it was for humans. I ended up weighing myself, then weighing both of us and doing math.
+Then writing that down on a peice of paper on the fridge.
+And this started working. Sorta. I could now see her weight and a bit of change.
+The problem with this is that human scales generally are only accurate to a fifth of a pound, which is 1% of a cats body weight.
+
+And thats when I decided the real answer would be to build a scale accurate for cat weights.
+I also wanted to stop recording on the fridge. And ultimately it should able to be placed near the food bowl where
+a cat will step on it a few times a day and automatically weigh in.
+What I really wanted was an automated email that would keep me updated a few times a week about progress, without me or the
+cat doing anything.
+
+So I started down this road to build a cat scale.
+Setting up a webserver to view a cats progress was relatively straightforward. I'm a web developer so I used what I knew to get
+something simple, but nice up in about two weeks.
+
+Then came the actualy scale. At first I was super excited to dive into the world of electronics and hardware and circuit diagrams.
+I had been causually playing with the Arduino ecosystem for a few weeks. Its sort of the electical engineering equivelent to legos.
+I got led's to flash and motion detectors to alert. All by using online tutorials.
+I found a super awesome hacker space in the Mission called Noisebridge. They've got all types of tools for soldering,
+hacking, tinkering, and building in general. If you need to build something and don't mind chaos, this is a great place.
+I found some tutorials for making wireless scale that I based my designs off of.
+But then on day 5 of working on the scale I realized I didn't really know how to read half the circuit diagrams I found out there.
+I had a pretty bad 24-48 hours where I thought this whole thing would fall apart and all I'd have to show was a website that any
+software developer could put up. What would be interesting or special about that.
+
+Anyway I kept working and got lots of help from people at Noisebridge, and engineering connections through folks at the Passion Co.
+
+So lets do a demo of what's been done.
+Full warning, live technical demos are generally not great idea, especially when the code has been changing on a daily basis.
+Anything could happen.
+
+
+So thats it.
+Right now the site is live, so if you or someone you know, whats to start tracking their cat's weight they can.
+The site it free to use. Their need their own scale.
+
+I'm currently talking to a few electrical engineers to build about a dozen revised prototypes for people.
+There is a link to 'Register for Updates' when those are out.
+If anyone is interested in helping with the project come talk to me.
+I'm looking for people to test it out and give me feedback or engineers who want to help design the next scale.
+Or really I'm open to anything if you are interested in helping.
+
+
+
+
