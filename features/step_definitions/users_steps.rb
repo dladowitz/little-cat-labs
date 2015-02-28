@@ -64,3 +64,6 @@ end
 
 # testing rebasing_5
 # testing rebasing_6
+
+# new commit 7
+
