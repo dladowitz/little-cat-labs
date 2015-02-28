@@ -44,7 +44,6 @@ end
 
 Then /they click the logout link/ do
   click_link "Sign Out"
-
 end
 
 Then /they are logged out of the site/ do

@@ -64,12 +64,77 @@ describe UsersController do
       context "when the user is not found in the database" do
         subject { get :show, { id: "not a real id" } }
 
-        it "redirects to the landing page " do
+        # not sure how this test is passing. ability.rb shoud be blocking access
+        it "renders the show page" do
           expect(response).to redirect_to user_path(user)
         end
 
         it "does NOT find a user" do
           expect(assigns(:user)).to be_nil
+        end
+      end
+    end
+  end
+
+  describe "GET profile" do
+    let(:user) { create :user }
+
+    context "with a logged in user" do
+      before :each do
+        session[:user_id] = user.id
+        subject
+      end
+
+      context "when user is found in the database" do
+        subject { get :profile, {id: user.id} }
+
+        it "renders the correct template" do
+          expect(response).to render_template :profile
+        end
+
+        it "finds the correct user" do
+          expect(assigns(:user)).to eq user
+        end
+      end
+
+      context "when user is not found in the database" do
+        subject { get :profile, {id: "99999999"} }
+
+        # not sure how this test is passing. ability.rb shoud be blocking access
+        it "renders the show page" do
+          expect(response).to redirect_to user_path(user)
+        end
+
+        it "doesn't find a user" do
+          expect(assigns(:user)).to be_nil
+        end
+      end
+    end
+  end
+
+  describe "PATCH update" do
+    let(:user) {create :user}
+
+    context "with a logged in user" do
+      before :each do
+        session[:user_id] = user.id
+        subject
+      end
+
+      context "with valid params" do
+        # subject { patch :update, id: user.id, user: {first_name: "Wayne", password: "123456", password_confirmation: "123456"} }
+        subject { patch :update, id: user.id, user: {first_name: "Wayne"} }
+
+        it "updates first name" do
+          expect(user.reload.first_name).to eq "Wayne"
+        end
+      end
+
+      context "with invalid params" do
+        subject { patch :update, id: user.id, user: {first_name: "Wayne", password: "not matching", password_confirmation: "other"} }
+
+        it "does not update first name" do
+          expect(user.reload.first_name).not_to eq "Wayne"
         end
       end
     end

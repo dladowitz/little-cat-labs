@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   root to: "landing_pages#landing"
 
   # custom routes
-  get    :landing,      to: "landing_pages#landing",      as: :landing
-  get    :signin,       to: "sessions#new",               as: :signin
-  get    :signup,       to: "users#new",                  as: :signup
-  get    :scale_status, to: "static_pages#scale_status",  as: :scale_status
+  get    :landing,        to: "landing_pages#landing",      as: :landing
+  get    :signin,         to: "sessions#new",               as: :signin
+  get    :signup,         to: "users#new",                  as: :signup
+  get    :scale_status,   to: "static_pages#scale_status",  as: :scale_status
+  get    "/profile/:id/", to: "users#profile",              as: :user_profile
 
   # resource routes
   resources :sessions, only: [:new, :create, :destroy]

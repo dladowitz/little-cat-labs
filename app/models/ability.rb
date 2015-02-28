@@ -12,7 +12,7 @@ class Ability
       can :manage, :all
     else
       can [:new, :create],  User
-      can :show, User do |user_record|
+      can [:show, :profile, :update], User do |user_record|
         current_user.id == user_record.id
       end
     end

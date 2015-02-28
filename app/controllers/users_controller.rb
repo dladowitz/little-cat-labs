@@ -34,6 +34,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def profile
+    @page_name = "Profile"
+
+  end
+
+  def update
+    @user.update_attributes user_params
+    @user.save
+
+    render :profile
+  end
+
   private
 
   def user_params
