@@ -1,8 +1,8 @@
 ---
 ohms_cat:
-  id: 2
+  id: 3
   name: Aiko
   age: 7
-  user_id: 6
-  created_at: 2015-01-30 00:41:42.207680000 Z
-  updated_at: 2015-01-30 00:41:42.207680000 Z
+  user_id: 9
+  created_at: 2015-02-28 19:17:25.402959000 Z
+  updated_at: 2015-02-28 19:17:25.402959000 Z

@@ -8,7 +8,7 @@ Then /they can see product features/ do
 end
 
 And /they click on the 'register' link/ do
-  click_link "Register to Hear More"
+  click_link "Register for Updates"
 end
 
 Then /they see the register page/ do
