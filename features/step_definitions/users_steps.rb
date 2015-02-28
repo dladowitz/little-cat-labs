@@ -53,17 +53,3 @@ Then /the user logs in with her new password/ do
   expect(page).to have_content "Miley"
 end
 
-
-# testing git
-
-# testing rebasing
-# testing rebasing_2
-
-# testing rebasing_3
-# testing rebasing_4
-
-# testing rebasing_5
-# testing rebasing_6
-
-# new commit 7
-
