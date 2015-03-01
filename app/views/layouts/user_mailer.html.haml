@@ -1,14 +1,16 @@
-.container
-  .logo{style: "width: 50%; margin: 20px auto"}
-    = link_to "https://littlecatlabs.herokuapp.com/" do
-      = image_tag attachments["logo_handwriting.png"].url
-
-
-  .col-md-8.col-md-offset-2.mt50
-    .panel.panel-success
-
-      = yield
-
-      .panel-footer
-        %h5
-        =link_to "Little Cat Labs", "https://littlecatlabs.herokuapp.com/", class: "blue underline text-center"
+-#CSS is nt showing up correctly when using this layout.
+-#
+-#.container
+-#  .logo{style: "width: 50%; margin: 20px auto"}
+-#    = link_to "https://littlecatlabs.herokuapp.com/" do
+-#      = image_tag attachments["logo_handwriting.png"].url
+-#
+-#
+-#  .col-md-8.col-md-offset-2.mt50
+-#    .panel.panel-success
+-#
+-#      = yield
+-#
+-#      .panel-footer
+-#        %h5
+-#        =link_to "Little Cat Labs", "https://www.littlecatlabs.co", class: "blue underline text-center"

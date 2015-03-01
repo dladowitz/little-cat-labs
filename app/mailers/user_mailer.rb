@@ -1,4 +1,8 @@
 class UserMailer < ApplicationMailer
+  # layout "user_mailer"  # css is not showing up properly when using a layout
+
+  RESET_LINK_BASE = "http://localhost:3000/reset_password/"
+
   def registration_email(registration)
     @registration = registration
     attachments.inline['logo_handwriting.png'] = File.read('app/assets/images/logo_handwriting.png')
@@ -11,5 +15,13 @@ class UserMailer < ApplicationMailer
     attachments.inline['logo_handwriting.png'] = File.read('app/assets/images/logo_handwriting.png')
 
     mail(to: @user.email, subject: "Little Cat Labs - Signup")
+  end
+
+  def request_password(user, token)
+    @user = user
+    @reset_link = RESET_LINK_BASE + token
+    attachments.inline['logo_handwriting.png'] = File.read('app/assets/images/logo_handwriting.png')
+
+    mail(to: @user.email, subject: "Little Cat Labs - Password Reset")
   end
 end

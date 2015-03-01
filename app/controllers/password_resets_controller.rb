@@ -1,5 +1,4 @@
 class PasswordResetsController < ApplicationController
-  RESET_LINK = "http://localhost:3000/reset_password/"
   layout "guest_pages/guest_layout"
 
   def request_password
@@ -11,7 +10,10 @@ class PasswordResetsController < ApplicationController
 
     if @user
       password_reset = @user.password_resets.create
-      @reset_link = RESET_LINK + password_reset.token.to_s
+      token = password_reset.token
+
+      #TODO Mailer should be sent asyncronously. Need to change so not to hold up the controller
+      UserMailer.request_password(@user, token).deliver
 
       render  :email_sent
     else
