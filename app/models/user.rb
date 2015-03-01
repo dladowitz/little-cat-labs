@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :cats
+  has_many :password_resets
 
   private
 

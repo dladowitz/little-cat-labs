@@ -15,6 +15,3 @@ Feature: Users features
     Then   the user changes her name and password
     Then   they click the logout link
     Then   the user logs in with her new password
-
-
-

@@ -52,4 +52,3 @@ Then /the user logs in with her new password/ do
   click_button "Sign In"
   expect(page).to have_content "Miley"
 end
-

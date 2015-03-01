@@ -4,11 +4,16 @@ Rails.application.routes.draw do
   root to: "landing_pages#landing"
 
   # custom routes
-  get    :landing,        to: "landing_pages#landing",      as: :landing
-  get    :signin,         to: "sessions#new",               as: :signin
-  get    :signup,         to: "users#new",                  as: :signup
-  get    :scale_status,   to: "static_pages#scale_status",  as: :scale_status
-  get    "/profile/:id/", to: "users#profile",              as: :user_profile
+  get    :landing,          to: "landing_pages#landing",           as: :landing
+  get    :signin,           to: "sessions#new",                    as: :signin
+  get    :signup,           to: "users#new",                       as: :signup
+  get    :scale_status,     to: "static_pages#scale_status",       as: :scale_status
+  get    "/profile/:id/",   to: "users#profile",                   as: :user_profile
+
+  # maybe make into a named resource
+  get    :request_password, to: "password_resets#request_password", as: :request_password
+  get    :reset_password,   to: "password_resets#reset_password",   as: :reset_password
+  resources :password_resets, only: [:create]
 
   # resource routes
   resources :sessions, only: [:new, :create, :destroy]
