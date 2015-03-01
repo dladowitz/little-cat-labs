@@ -1,9 +1,9 @@
 /*
  * Manifest for landing page.
- * Note that 'landing_page/landing_page.css' has been added to Rails.application.config.assets.precompile in assets.rb
+ * Note that 'guest_pages/guest_pages.css' has been added to Rails.application.config.assets.precompile in assets.rb
  *
  *= require_self
- //= require landing_page/template
+ //= require guest_pages/template
  //= require ../custom
  //= require mobile
  */

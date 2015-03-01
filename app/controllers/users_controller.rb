@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
   def new
-    render layout: "landing_page/landing_layout"
+    render layout: "guest_pages/guest_layout"
   end
 
   def create
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
     else
       # without specifying layout this was rendering new and then rendering default layout after
-      render :new, layout: "landing_page/landing_layout"
+      render :new, layout: "guest_pages/guest_layout"
     end
   end
 

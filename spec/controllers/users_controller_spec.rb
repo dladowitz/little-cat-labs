@@ -34,7 +34,7 @@ describe UsersController do
       it "renders the new template and landing page layout" do
         subject
         expect(response).to render_template :new
-        expect(response).to render_template "landing_page/landing_layout"
+        expect(response).to render_template "guest_pages/guest_layout"
       end
     end
   end

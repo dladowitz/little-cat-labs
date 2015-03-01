@@ -2,7 +2,7 @@ class RegistrationsController < ApplicationController
   before_action :load_registration, only: [:new, :create]
 
   def new
-    render layout: "landing_page/landing_layout"
+    render layout: "guest_pages/guest_layout"
   end
 
   def create
@@ -18,7 +18,7 @@ class RegistrationsController < ApplicationController
   end
 
   def confirmation
-    render layout: "landing_page/landing_layout"
+    render layout: "guest_pages/guest_layout"
   end
 
   private
