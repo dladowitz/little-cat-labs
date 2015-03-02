@@ -21,4 +21,13 @@ class PasswordResetsController < ApplicationController
       render :request_password
     end
   end
+
+  def reset_password
+    @password_reset = PasswordReset.find_by_token params[:token]
+    @user = @password_reset.user
+
+    if @password_reset.used?
+      render :already_used and return
+    end
+  end
 end

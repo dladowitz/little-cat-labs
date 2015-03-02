@@ -10,39 +10,41 @@ describe PasswordResetsController do
     end
   end
 
-  describe "POST create" do
-    let(:user) { create :user }
+  describe "POST create"
 
-    context "when email is found in the database" do
-      subject { post :create, email: user.email }
+  describe "GET reset_password" do
+    let(:password_reset) { create :password_reset}
+    let(:user)           { password_reset.user }
 
-      it "creates a new record in the database" do
-        expect{ subject }.to change{ PasswordReset.count }.by 1
+    context "with a token found in the database" do
+      context "when the password hasn't been reset yet" do
+        subject { get :reset_password, token: password_reset.token }
+
+        it "renders the reset_password template" do
+          subject
+          expect(response).to render_template :reset_password
+        end
+
+        it "finds the correct user" do
+          subject
+          expect(assigns(:user)).to eq user
+        end
       end
 
-      it "renders the email_sent template" do
-        subject
-        expect(response).to render_template :email_sent
+      context "when the password has already been reset" do
+        before { password_reset.update used: Time.now }
+        subject { get :reset_password, token: password_reset.token }
+
+        it "renders the already_used template" do
+          subject
+          expect(response).to render_template :already_used
+        end
+
+        it "finds the correct user" do
+          subject
+          expect(assigns :user).to eq user
+        end
       end
     end
-
-    context "when email is NOT found in the database" do
-      subject { post :create, email: "not a real email" }
-
-      it "does NOT create a new record in the database" do
-        expect{ subject }.not_to change{ PasswordReset.count }
-      end
-
-      it "re-renders the request_password template" do
-        subject
-        expect(response).to render_template :request_password
-      end
-
-      it "displays a flash message" do
-        subject
-        expect(flash[:danger]).to eq "Email address not found."
-      end
-    end
-
   end
 end

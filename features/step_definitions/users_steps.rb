@@ -50,5 +50,5 @@ Then /the user logs in with her new password/ do
   fill_in "password",              with: "new_password"
 
   click_button "Sign In"
-  expect(page).to have_content "Miley"
+  expect(page).to have_content @user.reload.first_name
 end
