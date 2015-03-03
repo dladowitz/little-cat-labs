@@ -13,8 +13,8 @@ And /the user resets the password/ do
   visit reset_link
   fill_in "user_password",              with: "new_password"
   fill_in "user_password_confirmation", with: "new_password"
-  click_button "Update"
+  click_button "Update User"
 
-  expect(page).to have_content "Password Updated"
+  expect(page).to have_content "Password updated"
   click_button "Sign In"
 end
