@@ -11,8 +11,9 @@ Rails.application.routes.draw do
   get    "/profile/:id/",   to: "users#profile",                   as: :user_profile
 
   # maybe make into a named resource
-  get    :request_password, to: "password_resets#request_password", as: :request_password
-  get    :reset_password,   to: "password_resets#reset_password",   as: :reset_password
+  get    :request_password,        to: "password_resets#request_password", as: :request_password
+  get    "/reset_password/:token", to: "password_resets#reset_password",   as: :reset_password
+  patch  "/reset_password/:token", to: "password_resets#update",           as: :password_reset
   resources :password_resets, only: [:create]
 
   # resource routes

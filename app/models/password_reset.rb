@@ -5,6 +5,7 @@
 #  id         :integer          not null, primary key
 #  user_id    :integer
 #  token      :string(255)
+#  used       :datetime
 #  created_at :datetime
 #  updated_at :datetime
 #
