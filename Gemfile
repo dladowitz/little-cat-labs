@@ -66,13 +66,3 @@ group :production do
   gem 'rails_12factor'
 end
 
-# adding conflict
-# merge conflict test
-
-# and more
-# more conflict
-
-# and more
-# more more
-
-# other
